@@ -1,5 +1,9 @@
 # Device: Quick Insert Slots
 
+[![release](https://img.shields.io/github/v/release/PureWOODs/quick-insert-slots?label=release)](https://github.com/PureWOODs/quick-insert-slots/releases/latest)
+[![license](https://img.shields.io/github/license/PureWOODs/quick-insert-slots)](https://github.com/PureWOODs/quick-insert-slots/blob/main/LICENSE)
+![Bitwig](https://img.shields.io/badge/Bitwig-6.1.4%20%C2%B7%20Windows%20x64-1f6feb)
+
 A Shortcut Buddy for Bitwig, built on the BML mod kit: a grid of slots, each holding something you
 can insert into a track — a Bitwig device, a preset, a whole chain, or a plug-in. Insert it with a
 click in the panel, a right-click in the device menu, a key you bind, or the Commander.
@@ -50,6 +54,10 @@ panel is where you see them all.
 2. **Import the zip in Patchbay**: drag it onto the Patchbay window, or use its import button. It
    checks the package, copies it into `mods\quick-insert-slots`, and lists it among the mods.
 3. **Load Bitwig** from Patchbay, or start Bitwig again: the mod is there from the next run on.
+
+To get updates from inside Patchbay Launcher, add this repository as a source once: **Sources →
+Mods → + Add → `PureWOODs/quick-insert-slots` → Check**. The mod then appears under *Mods* with its
+available version, and *Update* when a newer release is published.
 
 The four frameworks under *Requirements* ship with Patchbay. If one is missing or older than listed,
 Patchbay refuses to load this mod and says which.
