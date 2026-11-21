@@ -21,8 +21,9 @@ panel is where you see them all.
 
 ## Download and install
 
-**[Download `quick-insert-slots-0.1.3.zip`](https://github.com/PureWOODs/quick-insert-slots/releases/latest)**
-— from the latest release, under *Assets*.
+**Download [`quick-insert-slots-0.1.3.zip`](https://github.com/PureWOODs/quick-insert-slots/raw/main/dist/quick-insert-slots-0.1.3.zip)**
+(direct download, 27 KB). It is also attached to the
+[latest release](https://github.com/PureWOODs/quick-insert-slots/releases/latest) under *Assets*.
 
 1. Install [Patchbay / BML](https://github.com/shaboogen-dev/Patchbay) 0.36 or newer, and start it
    once so its mods folder exists.
