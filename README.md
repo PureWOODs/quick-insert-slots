@@ -19,14 +19,33 @@ panel is where you see them all.
   - (Panel management needs the Settings framework too, so both have to be present. The
     notifications framework is what shows "inserted" and "could not insert".)
 
-## Install
+## Download and install
 
-1. Unzip `quick-insert-slots` into the loader's `mods` folder, next to the frameworks.
-2. Start Bitwig. The panel is offered as **Quick Insert** by whichever panel layout mod you use
-   (Framework: Panels, or Panel: Streamlined Views with its view switcher).
-3. Settings → **Mods** → **Quick Insert** holds four options: how many slots are on show (4, 8, 16,
-   32, 48 or 64), whether a click fills every selected track, whether using a slot says so, and
-   whether a right-click clears one.
+**[Download `quick-insert-slots-0.1.3.zip`](https://github.com/PureWOODs/quick-insert-slots/releases/latest)**
+— from the latest release, under *Assets*.
+
+1. Install [Patchbay / BML](https://github.com/shaboogen-dev/Patchbay) 0.36 or newer, and start it
+   once so its mods folder exists.
+2. **Import the zip in Patchbay**: drag it onto the Patchbay window, or use its import button. It
+   checks the package, copies it into `mods\quick-insert-slots`, and lists it among the mods.
+3. **Load Bitwig** from Patchbay, or start Bitwig again: the mod is there from the next run on.
+
+The four frameworks under *Requirements* ship with Patchbay. If one is missing or older than listed,
+Patchbay refuses to load this mod and says which.
+
+Then open Settings → **Mods** → **Quick Insert**, which holds four options: how many slots are on
+show (4, 8, 16, 32, 48 or 64), whether a click fills every selected track, whether using a slot says
+so, and whether a right-click clears one.
+
+The panel itself is offered as **Quick Insert** by whichever panel layout mod you use (Framework:
+Panels, or Panel: Streamlined Views with its view switcher).
+
+<details>
+<summary>Installing without Patchbay</summary>
+
+Unzip the release zip so that `mods\quick-insert-slots\mod.json` exists next to the frameworks, then
+start Bitwig. That is what Patchbay does for you, minus the version checks.
+</details>
 
 ## Filling a slot
 
