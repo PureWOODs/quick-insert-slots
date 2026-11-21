@@ -12,6 +12,19 @@ panel is where you see them all.
 > Bitwig when it starts; Bitwig's own installation is never modified. Without Patchbay this zip does
 > nothing.
 
+## 中文简介
+
+- 给 Bitwig 加一组「插入槽」：每个槽记住一个设备、预设、整条效果链或插件（VST3 / CLAP），
+  用的时候一键插进当前轨道。
+- 三种用法：点面板上的格子；右键设备选 `Quick Insert ▸ Slot NN`；或把 `Slot NN` 绑到任意快捷键
+  （Settings → Shortcuts 搜 “Quick Insert”）。
+- 存槽：在浏览器里右键任何设备、预设、插件 → `Add to Next Empty Slot`（或 `Save to Slot NN`）。
+- 面板格子实时显示槽里是什么；右键格子清空。
+- 需要先装 [Patchbay](https://github.com/shaboogen-dev/Patchbay) 0.36.0-dev.13 或更新（开源，
+  MIT，不会修改 Bitwig 本体）。
+- 下载：[quick-insert-slots-0.1.3.zip](https://github.com/PureWOODs/quick-insert-slots/raw/main/dist/quick-insert-slots-0.1.3.zip)。
+  测试环境：Bitwig Studio 6.1.4 / Windows x64。
+
 ## Requirements
 
 - Bitwig Studio **6.1.4**, Windows x64 — that is what this build was made and tested against.
@@ -155,3 +168,9 @@ Edit it with Bitwig closed, or set slots from the browser and the rest from Sett
 - No drag and drop reordering of slots; re-save into a slot to change it.
 - The panel fills its space rather than scrolling: with 64 slots in a short panel the cells get
   small. Use fewer slots on show, or give the panel more height.
+
+## 搜索关键词 / Keywords
+
+Bitwig, Bitwig Studio, quick insert, quick-insert-slots, device slot, preset slot, chain slot,
+hotkey, keyboard shortcut, Patchbay, BML mod, VST3, CLAP, 快速插入, 插入槽, 预设, 快捷键, 音色,
+设备链.
