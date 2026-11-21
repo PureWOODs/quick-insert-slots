@@ -16,6 +16,17 @@ panel is where you see them all.
 > Bitwig when it starts; Bitwig's own installation is never modified. Without Patchbay this zip does
 > nothing.
 
+## 截图 / Screenshots
+
+The panel — eight slots filled, each showing what it holds:
+
+![The Quick Insert panel with eight slots filled in Bitwig](docs/panel.png)
+
+Saving from Bitwig's browser — right-click anything, then **Quick Insert ▸ Save to Slot NN** or
+**Add to Next Empty Slot**:
+
+<img src="docs/menu.png" width="300" alt="Bitwig's browser context menu with Quick Insert submenu and Save to Slot entries">
+
 ## 中文简介
 
 - 给 Bitwig 加一组「插入槽」：每个槽记住一个设备、预设、整条效果链或插件（VST3 / CLAP），
