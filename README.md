@@ -7,10 +7,17 @@ click in the panel, a right-click in the device menu, a key you bind, or the Com
 There is no Bitwig device to put on a track and nothing to route: the slots live in the mod, and the
 panel is where you see them all.
 
+> **This mod needs [Patchbay](https://github.com/shaboogen-dev/Patchbay)** — an open-source (MIT)
+> third-party mod loader for Bitwig, not made by Bitwig. A mod is a folder that Patchbay loads into
+> Bitwig when it starts; Bitwig's own installation is never modified. Without Patchbay this zip does
+> nothing.
+
 ## Requirements
 
-- Bitwig Studio **6.1.4** (Windows x64; the build is against 6.1.4).
-- The BML loader (Patchbay) **0.36.0-dev.13** or newer.
+- Bitwig Studio **6.1.4**, Windows x64 — that is what this build was made and tested against.
+  Patchbay's maps may carry it to other 6.1.x builds; macOS and Linux are untested.
+- [Patchbay / BML](https://github.com/shaboogen-dev/Patchbay) **0.36.0-dev.13** or newer — the mod
+  loader (open source, MIT).
 - These frameworks, installed as mods next to this one:
   - `action-menu-composition-framework` **0.7.0-dev.3** or newer
   - `panel-management-framework` **0.1.0-dev.3** or newer
