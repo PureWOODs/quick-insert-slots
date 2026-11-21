@@ -16,6 +16,19 @@ The mod is built against Bitwig **6.1.4** on Windows x64 and uses that version's
 On another version the names have to be mapped again (see the BML docs, `docs\maps.md`): nothing in
 `src\` will compile against a different `bitwig.jar` until then.
 
+## Set two variables first
+
+Every command below uses `$BITWIG` (the Bitwig Studio install) and `$BML` (the BML/Patchbay
+install). Replace these example paths with your own, in the shell you build from:
+
+```powershell
+$BITWIG = 'C:\Program Files\Bitwig Studio'
+$BML    = 'C:\Bitwig mod\BML-0.36.0-dev.13-windows'
+```
+
+`javac` and `java` must be the JDK 25 ones. If they are not on `PATH`, call them by full path, for
+example `& 'C:\Program Files\Java\jdk-25.0.2\bin\javac.exe'`.
+
 ## Three steps
 
 ```powershell
@@ -39,7 +52,8 @@ jar --create --file build\helper.jar -C build\classes .
 Then copy `mod.json`, `helper.jar`, the three `*.properties` files, `README.md`, `resources\` and
 `slots\` into `<BML>\mods\quick-insert-slots\`, with Bitwig closed.
 
-`$DEPS` is the `-cp` list of the four frameworks' `helper.jar`:
+`$DEPS` is the `-cp` list of the four frameworks' `helper.jar`, `$DEP_JARS` the same four jars as
+plain arguments:
 
 - `action-menu-composition-framework`
 - `panel-management-framework`
@@ -53,7 +67,15 @@ Then copy `mod.json`, `helper.jar`, the three `*.properties` files, `README.md`,
 # expect: PREPARE_OK ... mods=5
 ```
 
-It fails with `helper.jar 另一个程序正在使用` while Bitwig is running: close it first.
+While Bitwig is running this fails with a `helper.jar` file-in-use error: close Bitwig first.
+
+## Packaging for a release
+
+A package that Patchbay can import is a zip whose single top-level folder is named after the `mod.id`
+(`quick-insert-slots`), with `mod.json`, `helper.jar`, the three properties files, `README.md`,
+`resources/` and `slots/` inside it. Entry names must use forward slashes: a zip written by Windows
+PowerShell 5.1's `Compress-Archive` uses backslashes and is rejected with
+`it has an unsafe path`.
 
 ## Notes
 
