@@ -54,8 +54,8 @@ Saving from Bitwig's browser — right-click anything, then **Quick Insert ▸ S
 
 1. 先装 [Patchbay](https://github.com/shaboogen-dev/Patchbay) **0.36.0-dev.13** 或更新版本（开源，
    MIT；它只在启动时把 mod 载入内存，不改 Bitwig 本体）。
-2. 下载 [quick-insert-slots-0.1.3.zip](https://github.com/PureWOODs/quick-insert-slots/raw/main/dist/quick-insert-slots-0.1.3.zip)
-   （27 KB）。
+2. 下载 [quick-insert-slots-0.1.4.zip](https://github.com/PureWOODs/quick-insert-slots/raw/main/dist/quick-insert-slots-0.1.4.zip)
+   （31 KB）。
 3. 把 zip 拖进 Patchbay 窗口，或用它的导入按钮；导入后它会出现在 mods 列表里。
 4. 从 Patchbay 启动 Bitwig（或之后自行启动）。想在 Patchbay Launcher 里收到更新，就在
    **Sources → Mods → + Add** 里加上 `PureWOODs/quick-insert-slots`。
@@ -151,8 +151,8 @@ clear.right.click=true      右键清空
 
 ## Download and install
 
-**Download [`quick-insert-slots-0.1.3.zip`](https://github.com/PureWOODs/quick-insert-slots/raw/main/dist/quick-insert-slots-0.1.3.zip)**
-(direct download, 27 KB). It is also attached to the
+**Download [`quick-insert-slots-0.1.4.zip`](https://github.com/PureWOODs/quick-insert-slots/raw/main/dist/quick-insert-slots-0.1.4.zip)**
+(direct download, 31 KB). It is also attached to the
 [latest release](https://github.com/PureWOODs/quick-insert-slots/releases/latest) under *Assets*.
 
 1. Install [Patchbay / BML](https://github.com/shaboogen-dev/Patchbay) 0.36 or newer, and start it

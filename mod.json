@@ -3,7 +3,7 @@
   "mod": {
     "id": "quick-insert-slots",
     "name": "Device: Quick Insert Slots",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "author": "BigFatFish",
     "description": "A grid of slots that insert a saved device, preset, chain or plug-in into a track: click a cell in the panel, pick a slot from the device menu, or bind a slot to a key.",
     "documentation": "readme"
