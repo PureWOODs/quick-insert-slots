@@ -27,18 +27,84 @@ Saving from Bitwig's browser — right-click anything, then **Quick Insert ▸ S
 
 <img src="docs/menu.png" width="300" alt="Bitwig's browser context menu with Quick Insert submenu and Save to Slot entries">
 
-## 中文简介
+## 中文说明
 
-- 给 Bitwig 加一组「插入槽」：每个槽记住一个设备、预设、整条效果链或插件（VST3 / CLAP），
-  用的时候一键插进当前轨道。
-- 三种用法：点面板上的格子；右键设备选 `Quick Insert ▸ Slot NN`；或把 `Slot NN` 绑到任意快捷键
-  （Settings → Shortcuts 搜 “Quick Insert”）。
-- 存槽：在浏览器里右键任何设备、预设、插件 → `Add to Next Empty Slot`（或 `Save to Slot NN`）。
-- 面板格子实时显示槽里是什么；右键格子清空。
-- 需要先装 [Patchbay](https://github.com/shaboogen-dev/Patchbay) 0.36.0-dev.13 或更新（开源，
-  MIT，不会修改 Bitwig 本体）。
-- 下载：[quick-insert-slots-0.1.3.zip](https://github.com/PureWOODs/quick-insert-slots/raw/main/dist/quick-insert-slots-0.1.3.zip)。
-  测试环境：Bitwig Studio 6.1.4 / Windows x64。
+给 Bitwig 加一组「插入槽」：面板上有若干格子，每个格子记住一样东西 —— Bitwig 自带设备、预设
+（`.bwpreset`）、整条效果链、VST3 或 CLAP 插件。要用的时候插进当前轨道，不用再翻浏览器。
+
+### 安装
+
+1. 先装 [Patchbay](https://github.com/shaboogen-dev/Patchbay) **0.36.0-dev.13** 或更新版本（开源，
+   MIT；它只在启动时把 mod 载入内存，不改 Bitwig 本体）。
+2. 下载 [quick-insert-slots-0.1.3.zip](https://github.com/PureWOODs/quick-insert-slots/raw/main/dist/quick-insert-slots-0.1.3.zip)
+   （27 KB）。
+3. 把 zip 拖进 Patchbay 窗口，或用它的导入按钮；导入后它会出现在 mods 列表里。
+4. 从 Patchbay 启动 Bitwig（或之后自行启动）。想在 Patchbay Launcher 里收到更新，就在
+   **Sources → Mods → + Add** 里加上 `PureWOODs/quick-insert-slots`。
+
+### 存槽
+
+在 Bitwig 浏览器里右键任何设备、预设或插件：
+
+- `Add to Next Empty Slot` —— 存进第一个空槽；
+- `Quick Insert ▸ Save to Slot NN` —— 自己指定槽位。
+
+存的是浏览器项目背后的文件，所以浏览器关掉、条目被筛掉之后槽位照样能用。内置设备其实也是文件
+（`…\Library\devices\*.bwdevice`），一样可以存。VST3 如果是 bundle 文件夹，存的是里面真正的模块
+文件（`Contents\<arch>\<name>.vst3`），因为 Bitwig 打不开文件夹。
+
+### 插入
+
+- **面板**：点格子。面板会撑满给它的空间，格子大小随面板大小和槽位数量变化。
+- **设备右键菜单**：`Quick Insert ▸ Slot NN`，走 Bitwig 自己的拖放 —— 乐器落在链首，效果器落在链尾。
+- **快捷键**：`Settings → Shortcuts` 搜 “Quick Insert”，把任意 `Slot NN` 绑到键上。菜单里只显示编号，
+  因为 Bitwig 在启动时只读一次动作名；面板格子始终实时显示槽里是什么。
+- **Commander**：搜 `Slot NN`。
+
+### 设置
+
+`Settings → Mods → Quick Insert` 里有四项：
+
+| 设置 | 作用 |
+|---|---|
+| Slots on show | 面板显示多少格：4、8、16、32、48、64。改完立即生效，不用重启；减少只是隐藏，槽位内容与快捷键都还在。 |
+| Insert into all selected tracks | 打开后，面板/快捷键的插入会填满所有选中轨道（每条轨道单独一次插入，撤销也逐个来）。右键设备仍只作用于那条设备的链。 |
+| Show a notice when a slot is used | 插入成功或失败时弹一条提示。 |
+| Right-click clears a slot | 允许右键格子清空。 |
+
+### 清空
+
+右键面板格子，或在浏览器菜单里选 `Clear Slot NN`（只有非空槽位才出现），立即生效。
+
+### 槽位存在哪里
+
+`%LOCALAPPDATA%\BML\mods\quick-insert-slots\settings.properties`，每个槽位两个键：
+
+```properties
+slot.4.path=C:/Program Files/Common Files/VST3/FabFilter/FabFilter Pro-Q 4.vst3
+slot.4.path.alt=…           浏览器给的是外层 bundle 时才有
+slot.4.name=Pro-Q 4         面板显示的名字
+slots.count=8               显示多少格
+insert.all.selected=false   插入所有选中轨道
+notify.enabled=true         使用槽位时提示
+clear.right.click=true      右键清空
+```
+
+改的时候先关掉 Bitwig，或者平时用浏览器存槽、设置页改其余项。
+
+### 失败时
+
+- 槽位没反应：背后的文件被移动或卸载了，提示会说 *is missing*，重新存一次即可。
+- 出现 `LoadLibrary … Error code: 5` 或元数据错误：槽位指向了一个 `.vst3` 文件夹。这个版本读取时会
+  自动修成 `Contents\<arch>\<name>.vst3`；如果还报错，说明槽位指向的是别的东西。
+- 菜单里没有 `Slot NN`、快捷键列表里也搜不到：某个 framework 缺失或太旧，或 mod 没载入。BML 目录下
+  `sessions\<时间>\bml.log` 会写原因。
+
+### 限制
+
+- 一次插入一条轨道（除非打开「插入所有选中轨道」）。
+- 槽位不能拖动排序，换内容就是重新存一次。
+- 面板是撑满而不是滚动：短面板里放 64 格会很小，少放几格或把面板拉高。
 
 ## Requirements
 
@@ -193,3 +259,16 @@ Edit it with Bitwig closed, or set slots from the browser and the rest from Sett
 Bitwig, Bitwig Studio, quick insert, quick-insert-slots, device slot, preset slot, chain slot,
 hotkey, keyboard shortcut, Patchbay, BML mod, VST3, CLAP, 快速插入, 插入槽, 预设, 快捷键, 音色,
 设备链.
+
+## 致谢 / Credits
+
+- **DeepSeek** —— 这个 mod 的代码、构建与打包脚本、发布流程和文档，都是在 DeepSeek 的编码 agent
+  （DeepSeek Harness）协助下完成的：BML 混淆 API 的勘察、面板绘制、插入与存储逻辑、编译、离线
+  `prepare-mod` 验证、zip 打包，以及这份 README。
+- **[shaboogen-dev](https://github.com/shaboogen-dev)** —— [Patchbay / BML](https://github.com/shaboogen-dev/Patchbay)
+  提供了这套 mod 框架（MIT），[Mods](https://github.com/shaboogen-dev/Mods) 里的现成 mod 是写这个 mod 时的参考。
+- **[Polarity](https://github.com/polarity/bitwig-mods)** —— 发布的组织方式参考了他的仓库。
+
+*English: the code, build and packaging scripts, the release process and this README were written with
+DeepSeek (the DeepSeek Harness coding agent) — from mapping Bitwig's obfuscated API, through the panel
+and insertion logic, to compiling, offline `prepare-mod` checks and packaging the zip.*
