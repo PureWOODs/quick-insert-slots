@@ -20,6 +20,15 @@ panel is where you see them all.
 > Bitwig when it starts; Bitwig's own installation is never modified. Without Patchbay this zip does
 > nothing.
 
+## 快速开始 / Quick start
+
+1. Install [Patchbay](https://github.com/shaboogen-dev/Patchbay) 0.36 or newer, import this zip, start Bitwig.
+2. Right-click a plug-in, a device or a preset in Bitwig's browser → **Add to Next Empty Slot**
+   (or **Quick Insert ▸ Save to Slot NN**).
+3. **Settings → Shortcuts**, search "Quick Insert", and give `Slot 01` a key — `Ctrl+Alt+1` is a good one.
+4. Press that key on any track: the thing lands in the track's chain — instruments at the top, effects
+   at the end. No browser, no device panel, no mouse.
+
 ## 截图 / Screenshots
 
 The panel — eight slots filled, each showing what it holds:
