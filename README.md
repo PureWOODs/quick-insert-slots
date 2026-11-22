@@ -8,6 +8,10 @@ A Shortcut Buddy for Bitwig, built on the BML mod kit: a grid of slots, each hol
 can insert into a track — a Bitwig device, a preset, a whole chain, or a plug-in. Insert it with a
 click in the panel, a right-click in the device menu, a key you bind, or the Commander.
 
+The point of it is speed on the keyboard: give your few most-used plug-ins, presets and chains a slot
+each, bind each slot to a key in **Settings → Shortcuts**, and one key press puts that thing into the
+track you are on — no browser, no mouse, no hunting through the device panel.
+
 There is no Bitwig device to put on a track and nothing to route: the slots live in the mod, and the
 panel is where you see them all.
 
@@ -30,7 +34,12 @@ Saving from Bitwig's browser — right-click anything, then **Quick Insert ▸ S
 ## 中文说明
 
 给 Bitwig 加一组「插入槽」：面板上有若干格子，每个格子记住一样东西 —— Bitwig 自带设备、预设
-（`.bwpreset`）、整条效果链、VST3 或 CLAP 插件。要用的时候插进当前轨道，不用再翻浏览器。
+（`.bwpreset`）、整条效果链、VST3 或 CLAP 插件。
+
+**主要用法是绑快捷键。** 把你最常用的那几样东西存进槽位，每个槽位绑一个键（比如
+`Ctrl+Alt+1` = Pro-Q 4、`Ctrl+Alt+2` = Serum、`Ctrl+Alt+3` = 你常用的压缩链），之后在任何轨道上
+按键，它就直接插进当前轨道——不用开浏览器、不用找设备面板、不用鼠标。常用插件从「翻找」变成
+「一键」。
 
 ### 安装
 
@@ -53,12 +62,23 @@ Saving from Bitwig's browser — right-click anything, then **Quick Insert ▸ S
 （`…\Library\devices\*.bwdevice`），一样可以存。VST3 如果是 bundle 文件夹，存的是里面真正的模块
 文件（`Contents\<arch>\<name>.vst3`），因为 Bitwig 打不开文件夹。
 
-### 插入
+### 快捷键：主要用法
+
+1. 先在浏览器里右键常用的插件/预设 → `Add to Next Empty Slot`（或 `Save to Slot NN`），把它们存好。
+2. 打开 `Settings → Shortcuts`，搜 “Quick Insert”，把 `Slot 01` 绑成 `Ctrl+Alt+1`、`Slot 02` 绑成
+   `Ctrl+Alt+2`，以此类推。
+3. 之后在任何轨道、任何窗口焦点下按下这个键，插件就插进当前轨道（没有选中设备时插入第一条选中轨道
+   的链；右键设备时插到那条链）。乐器落在链首，效果器落在链尾。
+
+这样最常用的插件就是「一键到位」：换轨道、换工程、关了浏览器都不影响，键位在所有工程里通用。
+
+菜单和快捷键列表里只显示编号（`Slot 01` 而不是 `Pro-Q 4`），因为 Bitwig 在启动时只读一次动作名；
+面板格子始终实时显示槽里是什么，存完不用重启就更新。
+
+### 另外三种用法
 
 - **面板**：点格子。面板会撑满给它的空间，格子大小随面板大小和槽位数量变化。
 - **设备右键菜单**：`Quick Insert ▸ Slot NN`，走 Bitwig 自己的拖放 —— 乐器落在链首，效果器落在链尾。
-- **快捷键**：`Settings → Shortcuts` 搜 “Quick Insert”，把任意 `Slot NN` 绑到键上。菜单里只显示编号，
-  因为 Bitwig 在启动时只读一次动作名；面板格子始终实时显示槽里是什么。
 - **Commander**：搜 `Slot NN`。
 
 ### 设置
@@ -267,7 +287,6 @@ hotkey, keyboard shortcut, Patchbay, BML mod, VST3, CLAP, 快速插入, 插入�
   `prepare-mod` 验证、zip 打包，以及这份 README。
 - **[shaboogen-dev](https://github.com/shaboogen-dev)** —— [Patchbay / BML](https://github.com/shaboogen-dev/Patchbay)
   提供了这套 mod 框架（MIT），[Mods](https://github.com/shaboogen-dev/Mods) 里的现成 mod 是写这个 mod 时的参考。
-- **[Polarity](https://github.com/polarity/bitwig-mods)** —— 发布的组织方式参考了他的仓库。
 
 *English: the code, build and packaging scripts, the release process and this README were written with
 DeepSeek (the DeepSeek Harness coding agent) — from mapping Bitwig's obfuscated API, through the panel
